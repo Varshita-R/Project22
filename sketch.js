@@ -43,10 +43,22 @@ function setup() {
 function draw() {
   background(bgImg);
 
+ if(star.y>470&&starBody.position.y>470){
+	   Matter.Body.setStatic(starBody,true);
+   }
+
   drawSprites();
 
 }
 
 function keyPressed() {
-	//write code here
+	if(keyCode === 32){
+		Matter.Body.setStatic(starBody,false);
+	}
+	if(keyCode === RIGHT_ARROW){
+		fairy.x = fairy.x+10;
+	}
+	if(keyCode === LEFT_ARROW){
+		fairy.x = fairy.x-10;
+	}
 }
